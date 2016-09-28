@@ -1,0 +1,14 @@
+#cria projeto laravel
+composer create-project --prefer-dist laravel/laravel pjLaravel
+
+#criar projeto laravel na versão 5.1
+composer create-project --prefer-dist laravel/laravel nome-do-projeto 5.1.*
+
+#roda projeto
+php artisan serve
+
+#gerar chave de segurança do projeto: APP_KEY
+php artisan key:generate
+
+#alterar o namespace do projeto
+php artisan app:name pjLaravel
