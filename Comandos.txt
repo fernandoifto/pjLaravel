@@ -12,3 +12,9 @@ php artisan key:generate
 
 #alterar o namespace do projeto
 php artisan app:name pjLaravel
+
+#gera o model e a migration de Client
+php artisan make:model Client -m
+
+#gera migrate
+php artisan migrate
