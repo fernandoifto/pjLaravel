@@ -24,3 +24,6 @@ php artisan db:seed
 
 #criar uma seed
 php artisan make:seeder ClientTableSeeder
+
+#cria um controller ClientController
+php artisan make:controller ClientController
