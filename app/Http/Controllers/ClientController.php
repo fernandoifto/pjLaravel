@@ -48,7 +48,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
- 
+        return \pjLaravel\Client::find($id);
     }
 
     /**
@@ -71,7 +71,7 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return \pjLaravel\Client::update($request->all(), $id);
     }
 
     /**
@@ -82,6 +82,6 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \pjLaravel\Client::find($id)->delete();
     }
 }
