@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use pjLaravel\Http\Requests;
 use pjLaravel\Http\Controllers\Controller;
+use pjLaravel\Repositories\ClientRepository;
 
 class ClientController extends Controller
 {
@@ -14,9 +15,9 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ClientRepository $repository)
     {
-        return \pjLaravel\Client::all();
+        return $repository->all();
     }
 
     /**
@@ -37,7 +38,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        return \pjLaravel\Client::create($request->all());
+        return \pjLaravel\Entities\Client::create($request->all());
     }
 
     /**
@@ -48,7 +49,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        return \pjLaravel\Client::find($id);
+        return \pjLaravel\Entities\Client::find($id);
     }
 
     /**
@@ -71,7 +72,7 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $client = \pjLaravel\Client::find($id);
+        $client = \pjLaravel\Entities\Client::find($id);
 
         $client->update($request->all(),$id);
 
@@ -86,6 +87,6 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        \pjLaravel\Client::find($id)->delete();
+        \pjLaravel\Entities\Client::find($id)->delete();
     }
 }

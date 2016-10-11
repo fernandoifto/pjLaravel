@@ -27,3 +27,12 @@ php artisan make:seeder ClientTableSeeder
 
 #cria um controller ClientController
 php artisan make:controller ClientController
+
+#baixa o instala o sistema de repositorios  https://github.com/andersao/l5-repository
+composer require prettus/l5-repository
+
+#cria os arquivos de repositorio
+php artisan vendor:publish
+
+#cria um provider
+php artisan make:provider pjLaravelRepositoryProvider

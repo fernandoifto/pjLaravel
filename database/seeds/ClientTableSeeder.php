@@ -13,8 +13,8 @@ class ClientTableSeeder extends Seeder
     {
         //
         
-        \pjLaravel\Client::truncate();
+        \pjLaravel\Entities\Client::truncate();
         
-        factory(\pjLaravel\Client::class, 5)->create();
+        factory(\pjLaravel\Entities\Client::class, 5)->create();
     }
 }
