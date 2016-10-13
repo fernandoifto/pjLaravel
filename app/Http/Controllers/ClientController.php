@@ -3,21 +3,27 @@
 namespace pjLaravel\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use pjLaravel\Http\Requests;
-use pjLaravel\Http\Controllers\Controller;
 use pjLaravel\Repositories\ClientRepository;
 
 class ClientController extends Controller
 {
     /**
+     *
+     * @var ClientRepository
+     */
+    private $repository;
+    
+    public function __construct(ClientRepository $repository) {
+        $this->repository = $repository;
+    }
+
+        /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(ClientRepository $repository)
-    {
-        return $repository->all();
+    public function index(){
+        return $this->repository->all();
     }
 
     /**
@@ -36,9 +42,8 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        return \pjLaravel\Entities\Client::create($request->all());
+    public function store(Request $request){
+        return $this->repository->create($request->all());
     }
 
     /**
@@ -47,9 +52,8 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        return \pjLaravel\Entities\Client::find($id);
+    public function show($id){
+        return $this->repository->find($id);
     }
 
     /**
@@ -70,12 +74,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $client = \pjLaravel\Entities\Client::find($id);
-
+    public function update(Request $request, $id){
+        $client = $this->repository->find($id);
         $client->update($request->all(),$id);
-
         return $client;
     }
 
@@ -85,8 +86,7 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        \pjLaravel\Entities\Client::find($id)->delete();
+    public function destroy($id){
+        $this->repository->find($id)->delete();
     }
 }
