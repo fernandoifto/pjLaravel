@@ -56,7 +56,7 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        return $this->repository->create($request->all());
+        return $this->service->create($request->all());
     }
 
     /**
