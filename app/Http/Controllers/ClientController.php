@@ -4,6 +4,7 @@ namespace pjLaravel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use pjLaravel\Repositories\ClientRepository;
+use pjLaravel\Services\ClientService;
 
 class ClientController extends Controller
 {
@@ -12,8 +13,20 @@ class ClientController extends Controller
      * @var ClientRepository
      */
     private $repository;
-    
-    public function __construct(ClientRepository $repository) {
+    /**
+     * 
+     * @param ClientService
+     * 
+     */
+    private $service;
+    /**
+     * 
+     * @param ClientRepository $repository
+     * @param ClientService $service
+     */
+
+
+    public function __construct(ClientRepository $repository, ClientService $service) {
         $this->repository = $repository;
     }
 
